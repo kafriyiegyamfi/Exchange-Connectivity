@@ -1,25 +1,25 @@
 package com.trade.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class PendingOrder {
+public class PendingOrder implements Serializable {
+    private static final long serialVersionUID = 2228145111069333864L;
     public String product;
     public int quantity;
     public double price;
     public String side;
-    public int cumulatitiveQuantity;
+    public int cumulativeQuantity;
     public String exchange;
 
     public PendingOrder() {
     }
 
-    public PendingOrder(String product, int quantity, double price, String side, int cumulatitiveQuantity, String exchange) {
+    public PendingOrder(String product, int quantity, double price, String side, int cumulativeQuantity, String exchange) {
         this.product = product;
         this.quantity = quantity;
         this.price = price;
         this.side = side;
-        this.cumulatitiveQuantity = cumulatitiveQuantity;
+        this.cumulativeQuantity = cumulativeQuantity;
         this.exchange = exchange;
     }
 
@@ -30,9 +30,32 @@ public class PendingOrder {
                 ", quantity=" + quantity +
                 ", price=" + price +
                 ", side='" + side + '\'' +
-                ", cumulatitiveQuantity=" + cumulatitiveQuantity +
+                ", cumulativeQuantity=" + cumulativeQuantity +
                 ", exchange='" + exchange + '\'' +
                 '}';
-    };
     }
 
+    public String getProduct() {
+        return product;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getExchange() {
+        return exchange;
+    }
+
+    public void setExchange(String exchange) {
+        this.exchange = exchange;
+    }
+}

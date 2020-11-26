@@ -30,10 +30,10 @@ public class Utility {
         return str;
     }
 
-    public static PendingOrder[] requestOrderBook(String side, String product) {
+    public static PendingOrder[] requestOrderBook(String side, String product, String exchange) {
         if (side.equals("sell")) {
             return WebClient.builder()
-                    .baseUrl("https://exchange.matraining.com")
+                    .baseUrl(exchange)
                     .build()
                     .get()
                     .uri("/orderbook" + "/" + product + "/" + "buy")
