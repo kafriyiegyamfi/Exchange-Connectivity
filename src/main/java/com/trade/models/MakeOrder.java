@@ -51,7 +51,7 @@ public class MakeOrder implements Runnable{
                     System.out.println("Pending orders null");
                 }
                 for (int i = 0; i < pendingOrders.length; i++) {
-                    pendingOrders[i].exchange =  QUEUE_NAME=="exchange1OrderRequest"?"exchange1":"exchange2";
+                    pendingOrders[i].exchange =  QUEUE_NAME=="exchange1OrderRequest"?"Exchange1":"Exchange2";
                     System.out.println(pendingOrders[i]);
                 }
                 jedis.lpush(orderBookRequest.id + "orderbook", (Base64.getEncoder().encodeToString(ObjectSerializer.serialize(pendingOrders))));

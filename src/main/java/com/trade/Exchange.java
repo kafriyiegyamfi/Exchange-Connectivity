@@ -27,10 +27,10 @@ public class Exchange {
         Thread makeOrderToExchangeTwo = new Thread(new MakeOrder("exchange2OrderRequest"));
         makeOrderToExchangeTwo.start();
 
-        Thread placeOrderToExchangeOne = new Thread(new PlaceOrder("makeOrderExchange1", MALLON_1, MALLON_API_KEY_1));
+        Thread placeOrderToExchangeOne = new Thread(new PlaceOrder(MALLON_API_KEY_1,MALLON_1,"makeOrderExchange1"  ));
         placeOrderToExchangeOne.start();
 
-        Thread placeOrderToExchangeTwo = new Thread(new PlaceOrder("makeOrderExchange2", MALLON_2, MALLON_API_KEY_2));
+        Thread placeOrderToExchangeTwo = new Thread(new PlaceOrder(MALLON_API_KEY_2,MALLON_2,"makeOrderExchange2" ));
         placeOrderToExchangeTwo.start();
     }
 }
